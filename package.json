@@ -1,0 +1,14 @@
+{
+  "name": "callee",
+  "version": "1.0.0",
+  "description": "retrieve calling function/method information",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Andi Neck",
+  "license": "MIT",
+  "dependencies": {
+    "callsite": "^1.0.0"
+  }
+}
