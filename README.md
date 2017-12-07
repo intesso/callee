@@ -2,13 +2,15 @@
 
 retrieve calling function/method information (tiny wrapper for callsite)
 
+# api
+
+- `callee()` returns the `CallSite` Object of the calling function. alias for `callee(1)`
+- `callee(2)` returns the `CallSite` Object of the calling function of the calling function.
+- `callee('MyClass')` returns the `CallSite` Object of the calling function, method or type with the name 'MyClass'
+- `callee('MyClass', true)` same as the above, but caches the callsite index (use this with caution)
+- `callee.invalidate()` invalidates the cached callsite index
+
 # usage
-
-`callee()` returns the `CallSite` Object of the calling function.
-
-`callee(2)` returns the `CallSite` Object of the calling function of the calling function.
-
-... you get the idea:
 
 ```js
 const callee = require('callee')
@@ -35,7 +37,7 @@ let d = () => {
 a()
 ```
 
-prints out: 
+it prints out: 
 
 ```sh
 a null
@@ -62,7 +64,10 @@ see: https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/callsi
   isToplevel(): boolean;
   isEval(): boolean;
   isConstructor(): boolean;
+  getRelativeFileName(): string;
 ```
+
+NOTE: `getRelativeFileName()` is an added function
 
 # dependencies
 
@@ -71,3 +76,7 @@ single dependency: [callsite](https://github.com/tj/callsite)
 # license
 
 MIT
+
+# author
+
+Andi Neck
